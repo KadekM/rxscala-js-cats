@@ -79,7 +79,8 @@ lazy val cats = Project(id = "rx-scalajs-cats", base = file("modules/cats")).set
   publishSettings,
   libraryDependencies ++= Seq(
     "com.github.lukajcb" %%% "rxscala-js" % "0.9.2",
-    "org.scalatest" %% "scalatest" % "3.0.1" % Test
+    "org.scalatest" %%% "scalatest" % "3.0.1" % Test,
+    "org.scalacheck" %%% "scalacheck" % "1.13.4" % Test
   )
 ).enablePlugins(ScalaJSPlugin)
 
