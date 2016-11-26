@@ -1,4 +1,4 @@
-val scalaV      = "2.12.0"
+val scalaV = "2.12.0"
 val crossScalaV = Seq("2.11.8", "2.12.0")
 
 // ---- formatting ----
@@ -8,30 +8,30 @@ scalafmtConfig in ThisBuild := Some(file(".scalafmt.conf"))
 // ---- common settings ----
 
 val commonSettings = Seq(
-    organization := "com.marekkadek",
-    scalaVersion := scalaV,
-    crossScalaVersions := crossScalaV,
-    releaseCrossBuild := true,
-    scalacOptions := Seq(
-      // following two lines must be "together"
-      "-encoding",
-      "UTF-8",
-      "-Xlint",
-      "-Xlint:missing-interpolator",
-      "-deprecation",
-      "-feature",
-      "-unchecked",
-      "-Ywarn-dead-code",
-      "-Yno-adapted-args",
-      "-language:existentials",
-      "-language:higherKinds",
-      "-language:implicitConversions",
-      "-Ywarn-value-discard",
-      "-Ywarn-unused-import",
-      "-Ywarn-unused",
-      "-Ywarn-numeric-widen"
-    )
-  ) 
+  organization := "com.marekkadek",
+  scalaVersion := scalaV,
+  crossScalaVersions := crossScalaV,
+  releaseCrossBuild := true,
+  scalacOptions := Seq(
+    // following two lines must be "together"
+    "-encoding",
+    "UTF-8",
+    "-Xlint",
+    "-Xlint:missing-interpolator",
+    "-deprecation",
+    "-feature",
+    "-unchecked",
+    "-Ywarn-dead-code",
+    "-Yno-adapted-args",
+    "-language:existentials",
+    "-language:higherKinds",
+    "-language:implicitConversions",
+    "-Ywarn-value-discard",
+    "-Ywarn-unused-import",
+    "-Ywarn-unused",
+    "-Ywarn-numeric-widen"
+  )
+)
 
 // ---- publising ----
 
@@ -43,8 +43,10 @@ val noPublishSettings = Seq(
 
 val publishSettings = Seq(
   homepage := Some(url("https://github.com/KadekM/rxscala-js-cats")),
-  organizationHomepage := Some(url("https://github.com/KadekM/rxscala-js-cats")),
-  licenses += ("MIT license", url("http://www.opensource.org/licenses/mit-license.php")),
+  organizationHomepage := Some(
+    url("https://github.com/KadekM/rxscala-js-cats")),
+  licenses += ("MIT license", url(
+    "http://www.opensource.org/licenses/mit-license.php")),
   publishMavenStyle := true,
   publishArtifact in Test := false,
   releasePublishArtifactsAction := PgpKeys.publishSigned.value,
@@ -74,15 +76,19 @@ val publishSettings = Seq(
 
 // ---- modules ----
 
-lazy val cats = Project(id = "rx-scalajs-cats", base = file("modules/cats")).settings(
-  commonSettings,
-  publishSettings,
-  libraryDependencies ++= Seq(
-    "com.github.lukajcb" %%% "rxscala-js" % "0.9.2",
-    "org.scalatest" %%% "scalatest" % "3.0.1" % Test,
-    "org.scalacheck" %%% "scalacheck" % "1.13.4" % Test
+lazy val cats = Project(id = "rx-scalajs-cats", base = file("modules/cats"))
+  .settings(
+    commonSettings,
+    publishSettings,
+    libraryDependencies ++= Seq(
+      "com.github.lukajcb" %%% "rxscala-js" % "0.9.2",
+      "org.typelevel" %%% "cats" % "0.8.1",
+      "org.scalatest" %%% "scalatest" % "3.0.1" % Test,
+      "org.scalacheck" %%% "scalacheck" % "1.13.4" % Test
+    ),
+    jsDependencies += "org.webjars.npm" % "rxjs" % "5.0.0-rc.4" / "bundles/Rx.min.js" commonJSName "Rx"
   )
-).enablePlugins(ScalaJSPlugin)
+  .enablePlugins(ScalaJSPlugin)
 
 lazy val root = Project(id = "root", base = file("."))
   .settings(
