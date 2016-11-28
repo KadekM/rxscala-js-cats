@@ -76,7 +76,7 @@ val publishSettings = Seq(
 
 // ---- modules ----
 
-lazy val cats = Project(id = "rx-scalajs-cats", base = file("modules/cats"))
+lazy val cats = Project(id = "rxscala-js-cats", base = file("modules/cats"))
   .settings(
     commonSettings,
     publishSettings,
