@@ -6,6 +6,7 @@ import cats.laws.discipline._
 import org.scalacheck._
 import instances._
 
+/* TODO: once we bump cats to 0.8+
 class LawsCheck extends Helpers {
 
   // observables can be potentially infinite, so we can't provide instance in library
@@ -32,3 +33,4 @@ class LawsCheck extends Helpers {
   // CoflatMapTests[Observable].coflatMap[Int, Int, Int].all.check()
   // SerializableTests.serializable(CoflatMap[Stream]).all.check()
 }
+*/

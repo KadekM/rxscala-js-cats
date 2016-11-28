@@ -1,4 +1,4 @@
-val scalaV = "2.12.0"
+val scalaV = "2.11.8"
 val crossScalaV = Seq("2.11.8", "2.12.0")
 
 // ---- formatting ----
@@ -82,7 +82,7 @@ lazy val cats = Project(id = "rxscala-js-cats", base = file("modules/cats"))
     publishSettings,
     libraryDependencies ++= Seq(
       "com.github.lukajcb" %%% "rxscala-js" % "0.9.2",
-      "org.typelevel" %%% "cats" % "0.8.1",
+      "org.typelevel" %%% "cats" % "0.7.2", // todo upgrade once we can, and crosspublish...
       "org.scalatest" %%% "scalatest" % "3.0.1" % Test,
       "org.scalacheck" %%% "scalacheck" % "1.13.4" % Test
     ),
