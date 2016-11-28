@@ -6,7 +6,7 @@
 ## Install
 
 ```scala
-libraryDependencies += "com.marekkadek" %%% "rxscala-js-cats" % "0.1"
+libraryDependencies += "com.marekkadek" %%% "rxscala-js-cats" % "0.1-SNAPSHOT"
 ```
 
 It doesn't come bundled with the underlying `rx.js` file, so you'll need to either add them manually or specify them as `jsDependencies`:
