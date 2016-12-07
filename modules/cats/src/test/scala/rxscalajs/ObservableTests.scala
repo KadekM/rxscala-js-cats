@@ -11,6 +11,16 @@ class ObservableTests extends Helpers {
       toList(t) shouldBe List(2,3,4)
     }
 
+    "collect" in {
+      val o1 = Observable.just(1,2,3,4,5)
+
+      val t = o1.collect {
+        case x if x > 2 => x * 2
+      }
+
+      toList(t) shouldBe List(6,8,10)
+    }
+
     "zip" in {
       val o1 = Observable.just(1,2,3)
       val o2 = Observable.just('a','b','c')
