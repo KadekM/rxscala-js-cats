@@ -81,7 +81,7 @@ lazy val cats = Project(id = "rxscala-js-cats", base = file("modules/cats"))
     commonSettings,
     publishSettings,
     libraryDependencies ++= Seq(
-      "com.github.lukajcb" %%% "rxscala-js" % "0.10.0",
+      "com.github.lukajcb" %%% "rxscala-js" % "0.11.0",
       "org.typelevel" %%% "cats" % "0.7.2", // todo upgrade once we can, and crosspublish...
       "org.scalatest" %%% "scalatest" % "3.0.1" % Test,
       "org.scalacheck" %%% "scalacheck" % "1.13.4" % Test
