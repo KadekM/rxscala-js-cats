@@ -1,5 +1,7 @@
 package rxscalajs
 
+import scala.concurrent.duration._
+
 class ObservableTests extends Helpers {
 
   "observable" should {
@@ -44,6 +46,13 @@ class ObservableTests extends Helpers {
       val t = o1.map(x => o2.map(y => (x, y))).flatten
 
       toList(t) shouldBe List((1,'a'), (1,'b'), (1,'c'), (2,'a'), (2,'b'), (2,'c'), (3,'a'), (3,'b'), (3,'c'))
+    }
+
+    "factory combine latest" in {
+      val xs = Vector(1,2,3,4).map(x => Observable.just(x))
+      val obs = Observable.combineLatest(xs)
+
+      toList(obs) shouldBe List(List(1,2,3,4))
     }
   }
 

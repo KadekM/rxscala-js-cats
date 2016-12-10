@@ -6,13 +6,13 @@
 ## Install
 
 ```scala
-libraryDependencies += "com.marekkadek" %%% "rxscala-js-cats" % "0.2.0-SNAPSHOT"
+libraryDependencies += "com.marekkadek" %%% "rxscala-js-cats" % "0.3.0"
 ```
 
 It doesn't come bundled with the underlying `rx.js` file, so you'll need to either add them manually or specify them as `jsDependencies`:
 
 ```scala
-jsDependencies += "org.webjars.npm" % "rxjs" % "5.0.0-rc.4" / "bundles/Rx.min.js" commonJSName "Rx"
+jsDependencies += "org.webjars.npm" % "rxjs" % "5.0.0-rc.5" / "bundles/Rx.min.js" commonJSName "Rx"
 ```
 
 ## Usage
